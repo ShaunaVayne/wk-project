@@ -1,4 +1,4 @@
-package com.redis.demo.config;
+package com.quartz.config;
 
 import org.springframework.boot.autoconfigure.quartz.SchedulerFactoryBeanCustomizer;
 import org.springframework.context.annotation.Configuration;

@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>redis-demo</artifactId>
+    <artifactId>quartz</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>quartz</name>
     <packaging>jar</packaging>
-    <name>redis-demo</name>
-    <description>redis的常用示例</description>
+    <description>定时任务quartz</description>
 
     <parent>
         <groupId>com.wk.project</groupId>
@@ -19,27 +19,25 @@
     </properties>
 
     <dependencies>
-        <!-- DevTools -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
+            <artifactId>druid</artifactId>
         </dependency>
+        <!-- quartz -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -62,7 +60,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.redis.demo.RedisDemoApplication</mainClass>
+                    <mainClass>com.quartz.QuartzApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -73,7 +71,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>redis-demo</finalName>
+        <finalName>quartz</finalName>
     </build>
 
 </project>

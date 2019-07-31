@@ -34,6 +34,7 @@
         <module>dubbo-api</module>
         <module>dubbo-customer</module>
         <module>dubbo-provider</module>
+        <module>quartz</module>
     </modules>
 
     <dependencyManagement>
