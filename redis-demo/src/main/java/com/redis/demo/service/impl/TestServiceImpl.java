@@ -38,11 +38,11 @@ public class TestServiceImpl implements TestService {
 	public void opt(Long id) {
 		try {
 			GroupCourse groupCourse = groupCourseMapper.selectByPrimaryKey(id);
-			groupCourse.setGroupNumber(10);
+			groupCourse.setGroupNumber(11);
 			groupCourseMapper.updateByPrimaryKeySelective(groupCourse);
-			//int a = 10 / 0;
+			int a = 10 / 0;
 		} catch (Exception e) {
-			throw new RuntimeException(e.getMessage());
+			throw e;
 		}
 
 	}
