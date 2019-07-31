@@ -10,4 +10,6 @@ package com.redis.demo.service;
 public interface TestService {
 
 	void testAsync();
+
+	void opt(Long id);
 }

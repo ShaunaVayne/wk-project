@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redis.demo.dao.GroupCourseMapper" >
+  <resultMap id="BaseResultMap" type="com.redis.demo.bean.GroupCourse" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+    <result column="group_number" property="groupNumber" jdbcType="INTEGER" />
+    <result column="group_price" property="groupPrice" jdbcType="BIGINT" />
+    <result column="original_price" property="originalPrice" jdbcType="BIGINT" />
+    <result column="subject_id" property="subjectId" jdbcType="BIGINT" />
+    <result column="subject" property="subject" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="is_banner" property="isBanner" jdbcType="BIT" />
+    <result column="small_image" property="smallImage" jdbcType="VARCHAR" />
+    <result column="big_image" property="bigImage" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_id" property="createId" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_id" property="updateId" jdbcType="VARCHAR" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, group_name, group_number, group_price, original_price, subject_id, subject, start_time, 
+    end_time, is_banner, small_image, big_image, remark, create_time, create_id, update_time, 
+    update_id, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from group_course
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from group_course
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.redis.demo.bean.GroupCourse" >
+    insert into group_course (id, group_name, group_number, 
+      group_price, original_price, subject_id, 
+      subject, start_time, end_time, 
+      is_banner, small_image, big_image, 
+      remark, create_time, create_id, 
+      update_time, update_id, is_delete
+      )
+    values (#{id,jdbcType=BIGINT}, #{groupName,jdbcType=VARCHAR}, #{groupNumber,jdbcType=INTEGER}, 
+      #{groupPrice,jdbcType=BIGINT}, #{originalPrice,jdbcType=BIGINT}, #{subjectId,jdbcType=BIGINT}, 
+      #{subject,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{isBanner,jdbcType=BIT}, #{smallImage,jdbcType=VARCHAR}, #{bigImage,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.redis.demo.bean.GroupCourse" >
+    insert into group_course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="groupName != null" >
+        group_name,
+      </if>
+      <if test="groupNumber != null" >
+        group_number,
+      </if>
+      <if test="groupPrice != null" >
+        group_price,
+      </if>
+      <if test="originalPrice != null" >
+        original_price,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="subject != null" >
+        subject,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="isBanner != null" >
+        is_banner,
+      </if>
+      <if test="smallImage != null" >
+        small_image,
+      </if>
+      <if test="bigImage != null" >
+        big_image,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createId != null" >
+        create_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateId != null" >
+        update_id,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNumber != null" >
+        #{groupNumber,jdbcType=INTEGER},
+      </if>
+      <if test="groupPrice != null" >
+        #{groupPrice,jdbcType=BIGINT},
+      </if>
+      <if test="originalPrice != null" >
+        #{originalPrice,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="subject != null" >
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isBanner != null" >
+        #{isBanner,jdbcType=BIT},
+      </if>
+      <if test="smallImage != null" >
+        #{smallImage,jdbcType=VARCHAR},
+      </if>
+      <if test="bigImage != null" >
+        #{bigImage,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.redis.demo.bean.GroupCourse" >
+    update group_course
+    <set >
+      <if test="groupName != null" >
+        group_name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNumber != null" >
+        group_number = #{groupNumber,jdbcType=INTEGER},
+      </if>
+      <if test="groupPrice != null" >
+        group_price = #{groupPrice,jdbcType=BIGINT},
+      </if>
+      <if test="originalPrice != null" >
+        original_price = #{originalPrice,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="subject != null" >
+        subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isBanner != null" >
+        is_banner = #{isBanner,jdbcType=BIT},
+      </if>
+      <if test="smallImage != null" >
+        small_image = #{smallImage,jdbcType=VARCHAR},
+      </if>
+      <if test="bigImage != null" >
+        big_image = #{bigImage,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        update_id = #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.redis.demo.bean.GroupCourse" >
+    update group_course
+    set group_name = #{groupName,jdbcType=VARCHAR},
+      group_number = #{groupNumber,jdbcType=INTEGER},
+      group_price = #{groupPrice,jdbcType=BIGINT},
+      original_price = #{originalPrice,jdbcType=BIGINT},
+      subject_id = #{subjectId,jdbcType=BIGINT},
+      subject = #{subject,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      is_banner = #{isBanner,jdbcType=BIT},
+      small_image = #{smallImage,jdbcType=VARCHAR},
+      big_image = #{bigImage,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_id = #{createId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_id = #{updateId,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

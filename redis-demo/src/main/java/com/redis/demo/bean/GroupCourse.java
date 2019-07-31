@@ -3,15 +3,11 @@ package com.redis.demo.bean;
 import lombok.Data;
 import lombok.ToString;
 
-import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @ToString
-public class GroupCourse implements Serializable {
-
-    private static final long serialVersionUID = 6386285863739578538L;
-
+public class GroupCourse {
     private Long id;
 
     private String groupName;
@@ -22,9 +18,9 @@ public class GroupCourse implements Serializable {
 
     private Long originalPrice;
 
-    private String subject;
-
     private Long subjectId;
+
+    private String subject;
 
     private Date startTime;
 
