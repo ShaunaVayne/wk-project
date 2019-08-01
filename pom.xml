@@ -26,6 +26,7 @@
         <druid.version>1.1.13</druid.version>
         <mybatis.version>2.0.0</mybatis.version>
         <pagehelper.version>1.2.8</pagehelper.version>
+        <netty-all.version>4.1.6.Final</netty-all.version>
     </properties>
     <modules>
         <module>cloud-server</module>
@@ -37,6 +38,7 @@
         <module>dubbo-customer</module>
         <module>dubbo-provider</module>
         <module>quartz</module>
+        <module>netty-helloworld</module>
     </modules>
 
     <dependencyManagement>
@@ -82,6 +84,11 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty-all.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
